@@ -12,8 +12,8 @@
       <button
         :class="[
           sortTeamsByAscending
-            ? 'bg-green-500 text-white'
-            : 'bg-red-500 text-white',
+            ? 'bg-green-600 text-white'
+            : 'bg-red-600 text-white',
         ]"
         @click="(sortTeamsByAscending = true), sortTeams()"
         class="inline-block p-2"
@@ -23,8 +23,8 @@
       <button
         :class="[
           !sortTeamsByAscending
-            ? 'bg-green-500 text-white'
-            : 'bg-red-500 text-white',
+            ? 'bg-green-600 text-white'
+            : 'bg-red-600 text-white',
         ]"
         @click="(sortTeamsByAscending = false), sortTeams()"
         class="inline-block p-2"
