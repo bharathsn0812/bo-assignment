@@ -1,30 +1,39 @@
 <template>
   <div>
-    <select v-model="selectedSports">
-      <option v-for="sport in sports" :key="sport.value" :value="sport.value">
-        {{ sport.label }}
-      </option>
-    </select>
+    <div class="flex items-center space-x-4 justify-center">
+      <span class="inline-block">Select Sport:</span>
+      <select v-model="selectedSports" class="inline-block p-2 w-56">
+        <option v-for="sport in sports" :key="sport.value" :value="sport.value">
+          {{ sport.label }}
+        </option>
+      </select>
 
-    <button @click="(sortTeamsByAscending = true), sortTeams()">
-      Ascending
-    </button>
-    <button @click="(sortTeamsByAscending = false), sortTeams()">
-      Descending
-    </button>
-
-    <div v-if="teams">
-      <NuxtLink
-        v-for="team in teams"
-        :key="team.teamID"
-        :to="`/teams/${team.teamID}`"
+      <span class="inline-block mr-16">Sort By:</span>
+      <button
+        :class="[
+          sortTeamsByAscending
+            ? 'bg-green-500 text-white'
+            : 'bg-red-500 text-white',
+        ]"
+        @click="(sortTeamsByAscending = true), sortTeams()"
+        class="inline-block p-2"
       >
-        <p>
-          {{ team.city }}
-        </p>
-      </NuxtLink>
+        Ascending &#8593;
+      </button>
+      <button
+        :class="[
+          !sortTeamsByAscending
+            ? 'bg-green-500 text-white'
+            : 'bg-red-500 text-white',
+        ]"
+        @click="(sortTeamsByAscending = false), sortTeams()"
+        class="inline-block p-2"
+      >
+        Descending &#8595;
+      </button>
     </div>
-    <div v-else>No data to show</div>
+
+    <TeamsGrid class="mt-6" :teams="teams" />
   </div>
 </template>
 
