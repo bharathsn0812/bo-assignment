@@ -4,7 +4,7 @@
       class="card bg-white shadow-lg rounded-lg p-4 border-4"
       v-for="team in teams"
       :key="team.teamID"
-      :to="`/teams/${team.teamID}`"
+      :to="`/team/${team.teamID}`"
     >
       <p class="text-gray-700 text-center">
         {{ team.city }} - "{{ team.initials }}"
