@@ -1,4 +1,4 @@
-# Bharath Shetru Nagraj Assignment
+# Bharath Shetru Nagaraj Assignment
 
 please copy .env.example and create .env file in root of the project
 assign all the environment variables
